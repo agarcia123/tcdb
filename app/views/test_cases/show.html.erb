@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @test_case.name %>
+</p>
+
+<p>
+  <strong>Shdesc:</strong>
+  <%= @test_case.shdesc %>
+</p>
+
+<p>
+  <strong>Req:</strong>
+  <%= @test_case.req_id %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @test_case.author %>
+</p>
+
+<p>
+  <strong>Tctype:</strong>
+  <%= @test_case.tctype %>
+</p>
+
+<p>
+  <strong>Preconditions:</strong>
+  <%= @test_case.preconditions %>
+</p>
+
+<p>
+  <strong>Steps:</strong>
+  <%= @test_case.steps %>
+</p>
+
+<p>
+  <strong>Expected res:</strong>
+  <%= @test_case.expected_res %>
+</p>
+
+<%= link_to 'Edit', edit_test_case_path(@test_case) %> |
+<%= link_to 'Back', test_cases_path %>
