@@ -3,6 +3,17 @@ require 'test_helper'
 class TestCasesControllerTest < ActionController::TestCase
   setup do
     @test_case = test_cases(:one)
+    @update = {
+      :name           => 'test test_case',
+      :shdesc         => 'This is a short description',
+      :req_id         => 'req 1',
+      :author         => 'test author',
+      :tctype         => 'functional',
+      :preconditions  => 'none',
+      :steps          => 'a lot of them',
+      :expected_res   => 'should work'
+    }
+
   end
 
   test "should get index" do
@@ -18,7 +29,7 @@ class TestCasesControllerTest < ActionController::TestCase
 
   test "should create test_case" do
     assert_difference('TestCase.count') do
-      post :create, test_case: { author: @test_case.author, expected_res: @test_case.expected_res, name: @test_case.name, preconditions: @test_case.preconditions, req_id: @test_case.req_id, shdesc: @test_case.shdesc, steps: @test_case.steps, tctype: @test_case.tctype }
+      post :create, :test_case => @update
     end
 
     assert_redirected_to test_case_path(assigns(:test_case))
@@ -35,7 +46,7 @@ class TestCasesControllerTest < ActionController::TestCase
   end
 
   test "should update test_case" do
-    patch :update, id: @test_case, test_case: { author: @test_case.author, expected_res: @test_case.expected_res, name: @test_case.name, preconditions: @test_case.preconditions, req_id: @test_case.req_id, shdesc: @test_case.shdesc, steps: @test_case.steps, tctype: @test_case.tctype }
+    patch :update, id: @test_case, :test_case => @update
     assert_redirected_to test_case_path(assigns(:test_case))
   end
 
